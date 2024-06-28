@@ -12,23 +12,29 @@ require __DIR__ . "/listaHotel/hotel.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="#" />
     <title>php-hotel</title>
 </head>
 <body>
+    <?php echo "<h1>Php-Hotel</h1>" ?> 
 
     <section>
+        <form action="./index.php" method="get">
+            <label for="star">Stelle: </label>
+            <input type="number" name="star" id="star" min="1" max="5">
 
-        <form action="" method="get">
-            <label for="parcheggi">Presenza parcheggi: </label>
-            <select name="parcheggi" id="parcheggi">
-                <option value="yes">Si</option>
+            <label for="parking">Presenza parcheggi: </label>
+            <select name="parking" id="parking">
+                <option value="0"></option>
                 <option value="no">No</option>
+                <option value="yes">Si</option>
             </select>
-            <input type="submit" value="Invia">
-        </form>
-        
-    </section>
 
+            <input type="submit" value="Filtra">
+            <input type="submit" value="Reset">
+        </form>
+    </section>
+    <br>
     <section>
         <table>
             <thead>
