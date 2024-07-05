@@ -1,0 +1,7 @@
+label {
+    padding: 0 10px 0 1rem;
+}
+
+label[for="parking"] {
+    width: 43%;
+}

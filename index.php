@@ -102,31 +102,33 @@ if ($_GET['star'] > 0 && $_GET['star'] < 6) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="#" />
     <title>php-hotel</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <?php echo "<h1>Php-Hotel</h1>" ?> 
 
     <section>
-        <form action="./index.php" method="get">
-            <label for="star">Stelle: </label>
-            <input type="number" name="star" id="star" min="1" max="5">
+        <form class="container d-flex" action="./index.php" method="get">
+            <label class="d-flex align-items-center" for="star">Stelle: </label>
+            <input class="form-control" type="number" name="star" id="star" min="1" max="5">
 
-            <label for="parking">Presenza parcheggi: </label>
-            <select name="parking" id="parking">
+            <label class="d-flex align-items-center" for="parking">Presenza parcheggi: </label>
+            <select class="form-select" name="parking" id="parking">
                 <option value="null"></option>
                 <option value="false">No</option>
                 <option value="true">Si</option>
             </select>
 
-            <input type="submit" value="Filtra">
-            <input type="submit" value="Reset">
+            <input class="btn btn-outline-secondary" type="submit" value="Filtra">
+            <input class="btn btn-outline-secondary" type="submit" value="Reset">
         </form>
     </section>
     <br>
     <section>
-        <table>
+        <table class="table">
             <thead>
-                <tr>
+                <tr scope="row">
                 <th scope="col">Hotel</th>
                 <th scope="col">Descrizione</th>
                 <th scope="col">Parcheggio</th>
@@ -137,26 +139,22 @@ if ($_GET['star'] > 0 && $_GET['star'] < 6) {
             <tbody>
                 <?php if (isset($_GET['parking']) | isset($_GET['star']) | isset($_GET['parking']) && isset($_GET['star'])) { ?>
                     <?php foreach ($hoteltemp as $hoteltemp) { ?>
-                        <tr>
-                        <th><?php echo $hoteltemp['name'] ?></th>
-                        <td><?php echo $hoteltemp['description'] ?></td>
-                        <td>
-                        <?php echo $hoteltemp['parking'] ? 'Yes' : 'No' ?>
-                        </td>
-                        <td><?php echo $hoteltemp['vote'] ?></td>
-                        <td><?php echo $hoteltemp['distance_to_center'] ?>km</td>
+                        <tr scope="row">
+                            <th scope="col"><?php echo $hoteltemp['name'] ?></th>
+                            <td scope="col"><?php echo $hoteltemp['description'] ?></td>
+                            <td scope="col"><?php echo $hoteltemp['parking'] ? 'Yes' : 'No' ?></td>
+                            <td scope="col"><?php echo $hoteltemp['vote'] ?></td>
+                            <td scope="col"><?php echo $hoteltemp['distance_to_center'] ?>km</td>
                         </tr>
                     <?php } ?>
                 <?php } else { ?>
                     <?php foreach ($hotels as $hotel) { ?>
-                        <tr>
-                        <th><?php echo $hotel['name'] ?></th>
-                        <td><?php echo $hotel['description'] ?></td>
-                        <td>
-                        <?php echo $hotel['parking'] ? 'Yes' : 'No' ?>
-                        </td>
-                        <td><?php echo $hotel['vote'] ?></td>
-                        <td><?php echo $hotel['distance_to_center'] ?>km</td>
+                        <tr scope="row">
+                        <th scope="col"><?php echo $hotel['name'] ?></th>
+                        <td scope="col"><?php echo $hotel['description'] ?></td>
+                        <td scope="col"><?php echo $hotel['parking'] ? 'Yes' : 'No' ?></td>
+                        <td scope="col"><?php echo $hotel['vote'] ?></td>
+                        <td scope="col"><?php echo $hotel['distance_to_center'] ?>km</td>
                         </tr>
                     <?php } ?>
                 <?php } ?>
@@ -164,5 +162,7 @@ if ($_GET['star'] > 0 && $_GET['star'] < 6) {
         </table>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
