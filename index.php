@@ -73,7 +73,7 @@ if ($_GET['parking'] == "false") {
 };
 
 // impostazione per avere un opzione nulla funzionante
-if ($_GET['parking'] == "null") {
+if ($_GET['parking'] == "null" or "Reset") {
     $hoteltemp = [];
     foreach ($hotelsfilter as $hotel) {
             $hoteltemp[] = $hotel;
@@ -119,6 +119,7 @@ if ($_GET['star'] > 0 && $_GET['star'] < 6) {
             </select>
 
             <input type="submit" value="Filtra">
+            <input type="submit" value="Reset">
         </form>
     </section>
     <br>
